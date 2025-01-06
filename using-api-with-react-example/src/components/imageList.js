@@ -1,4 +1,5 @@
 import ImageShow from './ImageShow';
+import './ImageList.css'
 
 function ImageList({images}){
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import SearchImages from './api';
 import ImageList from './components/ImageList';
+import './App.css'
 
 
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1> App</h1>
+      <h1> Unplash API Consumption</h1>
       <SearchBar onSubmit={handleSubmit} />
       <ImageList images={images}></ImageList>
     </div>
