@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./BookCreate.css"
 
 function BookCreate({onCreate}){
 
@@ -10,15 +11,18 @@ function BookCreate({onCreate}){
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        onCreate(title);
+        onCreate(title); 
+        setTitle('');
     };
-    return <div>
-        <form>
-            <label>title</label>
+
+    return <div className="book-create">
+        <h4 className="heading">Add a Book</h4>
+        <form onSubmit={handleSubmit}>
+            <label>Title</label>
             <input value={title} onChange={handleChange}/>
             <button>Create</button>
         </form>
-        Book Create
+        
     </div>;
 }
 export default BookCreate;
