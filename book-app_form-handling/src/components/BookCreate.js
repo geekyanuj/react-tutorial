@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./BookCreate.css"
 
 function BookCreate({onCreate}){
 
@@ -16,11 +15,11 @@ function BookCreate({onCreate}){
     };
 
     return <div className="book-create">
-        <h4 className="heading">Add a Book</h4>
+        <h3>Add a Book</h3>
         <form onSubmit={handleSubmit}>
             <label>Title</label>
-            <input value={title} onChange={handleChange}/>
-            <button>Create</button>
+            <input className="input" value={title} onChange={handleChange}/>
+            <button className="button">Create</button>
         </form>
         
     </div>;
