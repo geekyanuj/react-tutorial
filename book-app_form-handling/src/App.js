@@ -33,8 +33,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h4>Book App</h4>
+    <div className="app">
+      <h1>Reading List</h1>
       <BookList books={books} onDelete={deleteBookById} onEdit={editBookById}/>
       <BookCreate onCreate={createBook}></BookCreate>
    </div> 
