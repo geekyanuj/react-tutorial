@@ -1,32 +1,16 @@
 {
   "books": [
     {
-      "title": "Jerry Potter",
+      "title": "Ramayana 1",
       "id": 1
     },
     {
-      "title": "Jone Doe",
+      "title": "Mahabharat",
       "id": 2
     },
     {
-      "title": "Roxy Rose",
+      "title": "Hanuman Chalisa",
       "id": 3
-    },
-    {
-      "title": "hello",
-      "id": 4
-    },
-    {
-      "title": "fdsaafds",
-      "id": 5
-    },
-    {
-      "title": "sdfa",
-      "id": 6
-    },
-    {
-      "title": "fafa",
-      "id": 7
     }
   ]
 }
