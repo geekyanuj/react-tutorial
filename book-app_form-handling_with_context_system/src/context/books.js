@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import axios from "axios";
 
 const BooksContext = createContext();
@@ -7,10 +7,16 @@ function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
   //fetching all books from db
-  const fetchBooks = async () => {
+  // const fetchBooks = async () => {
+  //   const response = await axios.get("http://localhost:3001/books");
+  //   setBooks(response.data);
+  // };
+
+// Now the updated the bug of unwanted api calling using usecallback hook
+  const fetchBooks = useCallback(async ()=>{
     const response = await axios.get("http://localhost:3001/books");
     setBooks(response.data);
-  };
+  },[]);
 
   //creating a book
   const createBook = async (title) => {
