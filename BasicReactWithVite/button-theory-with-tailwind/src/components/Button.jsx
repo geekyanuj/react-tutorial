@@ -43,7 +43,7 @@ const Button = ({
     }
 
 
-  return <button className={classes} onClick={rest.onClick}>{children} </button>;
+  return <button className={classes}>{children} </button>;
 };
 
 
