@@ -1,12 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
+import Panel from "./Panel";
 
 export default function Dropdown({options,value,onChange}){
 
 
     const [isOpen, setisOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(value);
+
+    useEffect(()=>{
+        const handler = (event) =>{
+            console.log(event);
+            
+        };
+        document.addEventListener('click',handler,true);
+    },[]);
+
+
     const handleClick = ()=>{
         setisOpen(!isOpen);
     };
@@ -19,14 +30,16 @@ export default function Dropdown({options,value,onChange}){
     };
 
     const renderedOptions = options.map((option)=>{
-        return <div onClick={()=>handleOptionClick(option)} key={option.value} className="hover:bg-gray-200 cursor-pointer">{option.label}</div>
+        return <div onClick={()=>handleOptionClick(option)} key={option.value} className="hover:bg-blue-100 cursor-pointer">{option.label}</div>
     });
 
     //conditional rendering in line 27x
     return (
-        <div>
-            <div onClick={handleClick} className="border rounded flex justify-between p-2 cursor-pointer bg-gray-100">{selectedOption} <span> {isOpen ?<IoMdArrowDropdown className="text-xl"/> : <IoMdArrowDropup className="text-xl"/>} </span></div> 
-            {isOpen && <div className="border rounded mx-2">{renderedOptions}</div>}
+        <div className="">
+            
+            <Panel onClick={handleClick} className="flex justify-between cursor-pointer">{selectedOption} <span> {isOpen ?<IoMdArrowDropup className="text-xl"/> : <IoMdArrowDropdown className="text-xl"/>} </span></Panel> 
+            
+            {isOpen && <Panel className="top-full">{renderedOptions}</Panel>}
         </div>
 
     );

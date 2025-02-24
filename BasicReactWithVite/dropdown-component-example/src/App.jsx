@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       <h2 className="p-2 font-bold">Dropdown Example</h2>
-      <div className="p-2 border w-60 h-50">
+      <div className="p-2 border w-60 h-50 shadow-xl">
         <Dropdown options={options} value={selection} onChange={handleSelection}/>
       </div>
     </div>
