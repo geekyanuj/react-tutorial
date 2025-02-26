@@ -16,7 +16,7 @@ export default function Dropdown({options,value,onChange}){
         if(!divEl.current){ // in some cases, divEl.current might be null. It might not be assigned to any element at all. So to handle that case, this is a really good practice, you're gonna see on a lot of projects, before we access divEl.current and just assume that some element is assigned to that property, we usually just check to make sure that is actually the case. So in this case, we could add in at the top of the handler if not divEl.current. So for some reason we did not assign that reference to any element. if we don't have a reference to any div right now, then just return early from the handler. Because if we don't have a reference to the element, then really there's nothing else for us to do inside of here.
             return;
         }
-        
+         
         if(!divEl.current.contains(event.target)){
             setisOpen(false);
         }
