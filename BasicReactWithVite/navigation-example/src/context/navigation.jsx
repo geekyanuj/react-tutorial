@@ -1,9 +1,9 @@
-import { Children, createContext, useEffect, useState } from "react";
+import {createContext, useEffect, useState } from "react";
 
 // Create a new context to hold and provide navigation data (e.g., current path)
 const NavigationContext = createContext();
 
-function NavigationProvider({ Children }) {
+function NavigationProvider({ children }) {
     // State to track the current path of the application (initialized with the current URL path)
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -22,12 +22,25 @@ function NavigationProvider({ Children }) {
     };
   }, []); // Empty dependency array means this effect runs only once when the component mounts
 
+
+  //Programatic Navigation
+  const navigate = (to) =>{
+    window.history.pushState({},'',to);
+    setCurrentPath(to);
+  };
+
+
+
   return (
     // Provide the currentPath value to all children components that consume the context
-    <NavigationContext.Provider value={{}}>
+    // added current path and navigate into navigation provider
+    <NavigationContext.Provider value={{currentPath, navigate}}> 
         {/* Render the children components passed into this provider */}
-      {Children}
-      {currentPath}
+      {children}
+      {/* <div>
+        <button onClick={()=> navigate('/accordion')}>Go to Accordion</button>
+        <button onClick={()=> navigate('/dropdown')}>Go to Dropdown</button>
+      </div> */}
     </NavigationContext.Provider>
   );
 }

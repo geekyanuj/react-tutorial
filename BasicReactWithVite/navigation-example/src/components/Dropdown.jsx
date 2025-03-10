@@ -6,7 +6,7 @@ import Panel from "./Panel";
 export default function Dropdown({options,value,onChange}){
 
 
-    const [isOpen, setisOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(value);
     const divEl = useRef();
 
@@ -18,7 +18,7 @@ export default function Dropdown({options,value,onChange}){
         }
          
         if(!divEl.current.contains(event.target)){
-            setisOpen(false);
+            setIsOpen(false);
         }
       };
       document.addEventListener('click',handler,true);
@@ -32,12 +32,12 @@ export default function Dropdown({options,value,onChange}){
 
 
     const handleClick = ()=>{
-        setisOpen(!isOpen);
+        setIsOpen(!isOpen);
     };
 
 
     const handleOptionClick = (option)=>{
-        setisOpen(false);
+        setIsOpen(false);
         setSelectedOption(option.label);
         onChange(option);
     };
